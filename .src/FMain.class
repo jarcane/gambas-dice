@@ -43,10 +43,14 @@ Public Sub RollButton_Click()
 End
 
 Public Sub MemStore_Click()
+
+  Dim modAsString As String = ""
   
   Mem.Num = FMain.NumDice.Value
   Mem.Sides = FMain.NumSides.Value
   Mem.Modifier = FMain.Modifier.Value
+  
+  FMain.HistoryLog.Text &= "Memory Stored: " & Mem.AsString() & "\n"
   
 End
 
@@ -56,4 +60,5 @@ Public Sub MemRecall_Click()
   FMain.NumSides.Value = Mem.Sides
   FMain.Modifier.Value = Mem.Modifier
   
+  FMain.HistoryLog.Text &= "Memory Recalled: " & Mem.AsString() & "\n"
 End

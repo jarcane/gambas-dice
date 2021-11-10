@@ -3,3 +3,16 @@
 Public Num As Integer
 Public Sides As Integer
 Public Modifier As Integer
+
+Public Function AsString() As String
+  Dim modAsString As String = ""
+  
+  If Modifier > 0 Then
+      modAsString = "+" & Str(Modifier)
+  Else If Modifier < 0 Then
+    modAsString = Str(Modifier)
+  Endif
+  
+  Return Str(Num) & "D" & Str(Sides) & modAsString
+  
+End
