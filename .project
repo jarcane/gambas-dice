@@ -1,0 +1,17 @@
+# Gambas Project File 3.0
+Title=Gambas Dice
+Startup=FMain
+Version=0.0.1
+Component=gb.image
+Component=gb.gui.qt
+Component=gb.form
+Description="A simple dice rolling application"
+Authors="Annaia Danvers <annie@redpanda.fun>"
+TabSize=2
+Language=en_US
+Maintainer=Annaia Danvers
+Address=annie@redpanda.fun
+Url=redpanda.fun
+License=Public Domain
+PackageName=gambas-dice-0.0.1
+Packager=1

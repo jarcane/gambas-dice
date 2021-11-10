@@ -1,0 +1,59 @@
+' Gambas class file
+
+Public Mem As DieRoll = New DieRoll
+
+Public Sub Form_Open()
+
+  Randomize
+
+End
+
+Public Sub RollButton_Click()
+
+  Dim total As Integer = 0
+  Dim roll As Integer = 0
+  Dim dice As Integer[] = []
+  Dim all As String = ""
+  Dim modAsString As String = ""
+  
+  For x As Integer = 1 To FMain.NumDice.Value
+    roll = Rand(1, FMain.NumSides.Value)
+    total += roll
+    dice.Push(roll)
+  Next
+  
+  For Each x In dice
+    all &= Str(x) & " "
+  Next
+  
+  If FMain.ModifierEnabled.Value Then
+    total += FMain.Modifier.Value
+    
+    If FMain.Modifier.Value > 0 Then
+    modAsString = "+" & Str(FMain.Modifier.Value)
+    Else If FMain.Modifier.Value < 0 Then
+      modAsString = Str(FMain.Modifier.Value)
+    Endif
+  Endif
+  
+  FMain.Result.Text = Str(total)
+  FMain.AllDice.Text = all  
+  FMain.HistoryLog.Text &= Str(FMain.NumDice.Value) & "D" & Str(FMain.NumSides.Value) & modAsString & ": " & all & "= " & Str(total) & "\n"
+  
+End
+
+Public Sub MemStore_Click()
+  
+  Mem.Num = FMain.NumDice.Value
+  Mem.Sides = FMain.NumSides.Value
+  Mem.Modifier = FMain.Modifier.Value
+  
+End
+
+Public Sub MemRecall_Click()
+
+  FMain.NumDice.Value = Mem.Num
+  FMain.NumSides.Value = Mem.Sides
+  FMain.Modifier.Value = Mem.Modifier
+
+End

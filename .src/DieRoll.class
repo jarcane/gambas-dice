@@ -1,0 +1,5 @@
+' Gambas class file
+
+Public Num As Integer
+Public Sides As Integer
+Public Modifier As Integer

@@ -1,0 +1,76 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,62,40)
+  { !HistoryLog TextArea
+    MoveScaled(34,2,26,36)
+    #Public = True
+    ToolTip = ("Previous rolls")
+    ReadOnly = True
+    ScrollBar = Scroll.Vertical
+  }
+  { !NumDice SpinBox
+    MoveScaled(6,15,9,4)
+    #Public = True
+    ToolTip = ("# of Dice")
+    Value = 3
+    Alignment = Align.Center
+  }
+  { !AllDice Label
+    MoveScaled(4,9,26,4)
+    #Public = True
+    ToolTip = ("Individual dice")
+    Alignment = Align.Center
+  }
+  { !Result LCDLabel
+    MoveScaled(5,2,24,6)
+    #Public = True
+    ToolTip = ("Roll total")
+    Text = ("0")
+    Alignment = Align.Center
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(14,15,6,4)
+    Font = Font["Bold,+2"]
+    Text = ("D")
+    Alignment = Align.Center
+  }
+  { !RollButton Button
+    MoveScaled(9,27,16,4)
+    #Public = True
+    ToolTip = ("Roll the dice!")
+    Text = ("Roll!")
+  }
+  { !NumSides SpinBox
+    MoveScaled(19,15,9,4)
+    #Public = True
+    ToolTip = ("# of Sides")
+    MinValue = 2
+    Step = 2
+    Value = 6
+    Alignment = Align.Center
+  }
+  { MemStore Button
+    MoveScaled(9,33,6,4)
+    ToolTip = ("Store roll setting")
+    Text = ("MS")
+  }
+  { MemRecall Button
+    MoveScaled(19,33,6,4)
+    ToolTip = ("Recall roll setting")
+    Text = ("MR")
+  }
+  { !ModifierEnabled CheckBox
+    MoveScaled(7,21,11,4)
+    #Public = True
+    ToolTip = ("Enable modifier")
+    Text = ("Modifier")
+  }
+  { !Modifier SpinBox
+    MoveScaled(18,21,9,4)
+    #Public = True
+    ToolTip = ("Modifier amount")
+    MinValue = -100
+    Alignment = Align.Right
+  }
+}
