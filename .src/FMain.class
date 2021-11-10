@@ -3,13 +3,13 @@
 Public Mem As DieRoll = New DieRoll
 
 Public Sub Form_Open()
-
+  
   Randomize
-
+  
 End
 
 Public Sub RollButton_Click()
-
+  
   Dim total As Integer = 0
   Dim roll As Integer = 0
   Dim dice As Integer[] = []
@@ -30,7 +30,7 @@ Public Sub RollButton_Click()
     total += FMain.Modifier.Value
     
     If FMain.Modifier.Value > 0 Then
-    modAsString = "+" & Str(FMain.Modifier.Value)
+      modAsString = "+" & Str(FMain.Modifier.Value)
     Else If FMain.Modifier.Value < 0 Then
       modAsString = Str(FMain.Modifier.Value)
     Endif
@@ -51,9 +51,9 @@ Public Sub MemStore_Click()
 End
 
 Public Sub MemRecall_Click()
-
+  
   FMain.NumDice.Value = Mem.Num
   FMain.NumSides.Value = Mem.Sides
   FMain.Modifier.Value = Mem.Modifier
-
+  
 End

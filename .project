@@ -1,7 +1,7 @@
 # Gambas Project File 3.0
 Title=Gambas Dice
 Startup=FMain
-Version=0.0.1
+Version=0.1.1
 Component=gb.image
 Component=gb.gui.qt
 Component=gb.form
