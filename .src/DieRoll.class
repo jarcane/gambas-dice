@@ -1,9 +1,9 @@
 ' Gambas class file
 
-Public Num As Integer = 3
-Public Sides As Integer = 6
-Public Modifier As Integer = 0
-Public ModifierEnabled As Boolean = False
+Public Num As Integer
+Public Sides As Integer 
+Public Modifier As Integer 
+Public ModifierEnabled As Boolean
 
 Private LastRoll As Integer[]
 

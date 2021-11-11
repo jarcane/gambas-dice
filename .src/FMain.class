@@ -32,6 +32,11 @@ Public Sub MemRecall_Click()
   
   Current = Mem.Copy()
   
+  FMain.NumDice.Value = Current.Num
+  FMain.NumSides.Value = Current.Sides
+  FMain.Modifier.Value = Current.Modifier
+  FMain.ModifierEnabled.Value = Current.ModifierEnabled
+  
   FMain.HistoryLog.Text &= "Memory Recalled: " & Current.AsString() & "\n"
 End
 
