@@ -4,6 +4,43 @@ Public Num As Integer
 Public Sides As Integer
 Public Modifier As Integer
 
+Private LastRoll As Integer[]
+
+Public Sub Roll()
+  
+  Let LastRoll = []
+  
+  For x As Integer = 1 To Num
+    LastRoll.Push(Rand(1, Sides))
+  Next
+  
+End
+
+Public Function Total() As Integer
+  
+  Dim total As Integer = 0
+  
+  For Each x In LastRoll
+    total += x
+  Next
+  
+  Return total
+  
+End
+
+Public Function AllDice() As String
+  
+  Dim all As String = ""
+  
+  For Each x In LastRoll
+    all &= Str(x) & " "
+  Next
+  
+  Return all
+  
+End
+
+
 Public Function AsString() As String
   Dim modAsString As String = ""
   
