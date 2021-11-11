@@ -1,5 +1,6 @@
 ' Gambas class file
 
+Public Current As DieRoll = New DieRoll
 Public Mem As DieRoll = New DieRoll
 
 Public Sub Form_Open()

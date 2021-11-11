@@ -1,8 +1,8 @@
 ' Gambas class file
 
-Public Num As Integer
-Public Sides As Integer
-Public Modifier As Integer
+Public Num As Integer = 3
+Public Sides As Integer = 6
+Public Modifier As Integer = 0
 
 Private LastRoll As Integer[]
 
@@ -20,7 +20,7 @@ Public Function Total() As Integer
   
   Dim total As Integer = 0
   
-  For Each x In LastRoll
+  For Each x As Integer In LastRoll
     total += x
   Next
   
@@ -32,7 +32,7 @@ Public Function AllDice() As String
   
   Dim all As String = ""
   
-  For Each x In LastRoll
+  For Each x As Integer In LastRoll
     all &= Str(x) & " "
   Next
   
