@@ -68,3 +68,9 @@ Public Function AsString() As String
   Return Str(Num) & "D" & Str(Sides) & modAsString
   
 End
+
+Public Function Copy() As DieRoll
+  
+  Return New DieRoll(Num, Sides, Modifier, ModifierEnabled)
+  
+End

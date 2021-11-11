@@ -22,10 +22,7 @@ End
 
 Public Sub MemStore_Click()
   
-  Mem.Num = Current.Num
-  Mem.Sides = Current.Sides
-  Mem.Modifier = Current.Modifier
-  Mem.ModifierEnabled = Current.ModifierEnabled
+  Mem = Current.Copy()
   
   FMain.HistoryLog.Text &= "Memory Stored: " & Mem.AsString() & "\n"
   
@@ -33,10 +30,7 @@ End
 
 Public Sub MemRecall_Click()
   
-  Current.Num = Mem.Num
-  Current.Sides = Mem.Sides
-  Current.Modifier = Mem.Modifier
-  Current.ModifierEnabled = Mem.ModifierEnabled
+  Current = Mem.Copy()
   
   FMain.HistoryLog.Text &= "Memory Recalled: " & Current.AsString() & "\n"
 End
