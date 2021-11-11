@@ -1,7 +1,7 @@
 # Gambas Project File 3.0
 Title=Gambas Dice
 Startup=FMain
-Version=0.1.2
+Version=0.1.3
 Component=gb.image
 Component=gb.gui.qt
 Component=gb.form
@@ -13,9 +13,16 @@ Maintainer=Annaia Danvers
 Address=annie@redpanda.fun
 Url=redpanda.fun
 License=Public Domain
-PackageName=gambas-dice-0.1.2
+PackageName=gambas-dice-0.1.3
 RuntimeVersion="3.14"
 Packager=1
-Systems=ubuntu
+Systems=debian,fedora,ubuntu
+SameDependencies=1
+SameFiles=1
+Menus=debian:"Games/Tools"
+Groups=debian:"games"
+Menus=fedora:"Game/Role Playing"
+Categories=fedora:"Game;RolePlaying"
+Groups=fedora:"Amusements/Games"
 Menus=ubuntu:"Games/Tools"
 Groups=ubuntu:"games"
