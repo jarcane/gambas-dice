@@ -7,12 +7,12 @@ Public ModifierEnabled As Boolean
 
 Private LastRoll As Integer[]
 
-Public Sub _new(Num As Integer, Sides As Integer, Modifier As Integer, ModifierEnabled As Boolean)
+Public Sub _new(n As Integer, s As Integer, m As Integer, enabled As Boolean)
   
-  Me.Num = Num
-  Me.Sides = Sides
-  Me.Modifier = Modifier
-  Me.ModifierEnabled = ModifierEnabled
+  Me.Num = n
+  Me.Sides = s
+  Me.Modifier = m
+  Me.ModifierEnabled = enabled
   
 End
 
@@ -29,15 +29,15 @@ End
 
 Public Function Total() As Integer
   
-  Dim total As Integer = 0
+  Dim t As Integer = 0
   
   For Each x As Integer In LastRoll
-    total += x
+    t += x
   Next
   
-  If ModifierEnabled Then total += Modifier
+  If ModifierEnabled Then t += Modifier
   
-  Return total
+  Return t
   
 End
 
