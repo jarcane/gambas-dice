@@ -3,8 +3,19 @@
 Public Num As Integer = 3
 Public Sides As Integer = 6
 Public Modifier As Integer = 0
+Public ModifierEnabled As Boolean = False
 
 Private LastRoll As Integer[]
+
+Public Sub _new(Num As Integer, Sides As Integer, Modifier As Integer, ModifierEnabled As Boolean)
+  
+  Me.Num = Num
+  Me.Sides = Sides
+  Me.Modifier = Modifier
+  Me.ModifierEnabled = ModifierEnabled
+  
+End
+
 
 Public Sub Roll()
   
@@ -23,6 +34,8 @@ Public Function Total() As Integer
   For Each x As Integer In LastRoll
     total += x
   Next
+  
+  If ModifierEnabled Then total += Modifier
   
   Return total
   
@@ -44,11 +57,13 @@ End
 Public Function AsString() As String
   Dim modAsString As String = ""
   
-  If Modifier > 0 Then
-      modAsString = "+" & Str(Modifier)
-  Else If Modifier < 0 Then
-    modAsString = Str(Modifier)
-  Endif
+  If ModifierEnabled Then 
+    If Modifier > 0 Then
+        modAsString = "+" & Str(Modifier)
+    Else If Modifier < 0 Then
+      modAsString = Str(Modifier)
+    Endif
+  Endif 
   
   Return Str(Num) & "D" & Str(Sides) & modAsString
   

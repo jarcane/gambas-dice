@@ -1,7 +1,8 @@
 ' Gambas class file
 
-Public Current As DieRoll = New DieRoll
-Public Mem As DieRoll = New DieRoll
+Public Current As DieRoll = New DieRoll(3, 6, 0, False)
+
+Public Mem As DieRoll = New DieRoll(3, 6, 0, False)
 
 Public Sub Form_Open()
   
@@ -11,45 +12,20 @@ End
 
 Public Sub RollButton_Click()
   
-  Dim total As Integer = 0
-  Dim roll As Integer = 0
-  Dim dice As Integer[] = []
-  Dim all As String = ""
-  Dim modAsString As String = ""
+  Current.Roll()
   
-  For x As Integer = 1 To FMain.NumDice.Value
-    roll = Rand(1, FMain.NumSides.Value)
-    total += roll
-    dice.Push(roll)
-  Next
-  
-  For Each x In dice
-    all &= Str(x) & " "
-  Next
-  
-  If FMain.ModifierEnabled.Value Then
-    total += FMain.Modifier.Value
-    
-    If FMain.Modifier.Value > 0 Then
-      modAsString = "+" & Str(FMain.Modifier.Value)
-    Else If FMain.Modifier.Value < 0 Then
-      modAsString = Str(FMain.Modifier.Value)
-    Endif
-  Endif
-  
-  FMain.Result.Text = Str(total)
-  FMain.AllDice.Text = all  
-  FMain.HistoryLog.Text &= Str(FMain.NumDice.Value) & "D" & Str(FMain.NumSides.Value) & modAsString & ": " & all & "= " & Str(total) & "\n"
+  FMain.Result.Text = Current.Total()
+  FMain.AllDice.Text = Current.AllDice()
+  FMain.HistoryLog.Text &= Current.AsString() & ": " & Current.AllDice() & "= " & Current.Total() & "\n"
   
 End
 
 Public Sub MemStore_Click()
-
-  Dim modAsString As String = ""
   
-  Mem.Num = FMain.NumDice.Value
-  Mem.Sides = FMain.NumSides.Value
-  Mem.Modifier = FMain.Modifier.Value
+  Mem.Num = Current.Num
+  Mem.Sides = Current.Sides
+  Mem.Modifier = Current.Modifier
+  Mem.ModifierEnabled = Current.ModifierEnabled
   
   FMain.HistoryLog.Text &= "Memory Stored: " & Mem.AsString() & "\n"
   
@@ -57,9 +33,34 @@ End
 
 Public Sub MemRecall_Click()
   
-  FMain.NumDice.Value = Mem.Num
-  FMain.NumSides.Value = Mem.Sides
-  FMain.Modifier.Value = Mem.Modifier
+  Current.Num = Mem.Num
+  Current.Sides = Mem.Sides
+  Current.Modifier = Mem.Modifier
+  Current.ModifierEnabled = Mem.ModifierEnabled
   
-  FMain.HistoryLog.Text &= "Memory Recalled: " & Mem.AsString() & "\n"
+  FMain.HistoryLog.Text &= "Memory Recalled: " & Current.AsString() & "\n"
+End
+
+Public Sub NumDice_Change()
+
+  Current.Num = NumDice.Value
+
+End
+
+Public Sub NumSides_Change()
+
+  Current.Sides = NumSides.Value
+
+End
+
+Public Sub Modifier_Change()
+
+  Current.Modifier = Modifier.Value
+
+End
+
+Public Sub ModifierEnabled_Click()
+
+  Current.ModifierEnabled = ModifierEnabled.Value
+
 End
